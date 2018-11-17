@@ -1,59 +1,129 @@
 body, html, #__next, .site { 
   margin: 0;
   height: 100%;
+
 }
 
 
 
 .content {
-  height: 200vh; 
   display: grid;
-  grid-template-rows: 1fr 10fr 10fr 1fr;
-  
+  grid-template-rows: 85px calc(100vh - 85px);
+  grid-template-columns: 1fr;
+  height: 100%;
+  border: 2px solid #294552
+  /* background: #D8D8D8; */
+
 }
 
+/* 
+.header-container{
+  height: 50px;
+}
+ */
+
+.main-container{
+
+  display: grid; 
+  grid-template-rows:  calc(100vh - 90px)  calc(100vh - 125px) 40px;
+  overflow: auto;
+ 
+    /* grid-template-columns: 1fr; */
+
+
+}
+
+
 .row{ 
-  background: grey;
   display: grid;
+  background: #597884;
   grid-template-columns: 1fr 1fr;
 
 }
+
 .header{ 
-  background: pink;
+  background: #acc4ce;
+  height: 85px;
+  transition: 0.2s;
+  font-size: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 70px;
+  padding-left: 70px;
+  /* border-bottom: 2px solid #294552 */
 }
 
 .footer{ 
-  background: pink;
+  background: #acc4ce;
+  color:  #294552;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 18px;
 }
 
 .box{ 
-  background: lightgreen;
+  background:#9eb9b3;
   display: flex;
   margin: 10px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
+
+  /* border: 2px solid #294552 */
 }
 
 .photos{
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-gap: 2px;
-  grid-gap: 5px
+  /* grid-gap: 25px; */
+
+  
 }
 
 .photo-row{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px
+  grid-gap: 25px;
+
+
 }
 
 .photo{
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
+}
+
+
+.album{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: white;
-  border: solid 1px blue;
 
 
 
 }
 
+
+.logo {
+  height: 70%
+}
+
+
+
+.buttons {
+  width: 200px; 
+  justify-content: space-around;
+  font-size: 50px; 
+  display: flex;
+  color: #294552
+}
+
+.button {
+  color: #294552
+}
