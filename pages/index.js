@@ -6,50 +6,50 @@ import './styles.css';
 
 
 class Home extends Component {
-  componentDidMount = () => {
-    document.getElementById('site').addEventListener('scroll', this.handleScroll);
-    // document.onscroll = this.handleScroll;
-    // window.onScroll = this.handleScroll;
+  state = {
+    scrolled: false,
   }
 
   handleScroll = () => {
+    const mainElement = document.getElementById('main-container');
     const innerHeight = window.innerHeight;
-    console.log('scrolling', innerHeight);
+    console.log('scrolling', mainElement.scrollTop);
+
+    if (mainElement.scrollTop > 300) this.setState({ scrolled: true });
+    else this.setState({ scrolled: false });
   }
 
   render() {
     return (
-      <div className="site" id="site">
+      <div className="site">
         <Head title="Home" />
-        <div className="content">
-
-          <div className="header-container">
-            <div className="header" id="header">
-
-              <img className="logo" src="/static/logo.png" alt=" " />
-              <div className="buttons">
-
-                <a className="button" href="https://facebook.com/">
-                  <i className="fab fa-facebook-square" href="facebook.com" />
-                </a>
-
-                <a className="button" href="https://spotify.com/">
-                  <i className="fab fa-spotify" />
-                </a>
+        <div className={`content ${this.state.scrolled && 'scrolled-content'}`}>
 
 
-                <a className="button" href="https://instagram.com/">
-                  <i className="fab fa-instagram" />
-                </a>
+          <div className={`header ${this.state.scrolled && 'scrolled-header'}`}>
+
+            <img className="logo" src="/static/logo.png" alt=" " />
+            <div className={`buttons ${this.state.scrolled && 'scrolled-buttons'}`}>
 
 
-              </div>
+              <a className="button" href="https://facebook.com/">
+                <i className="fab fa-facebook-square" href="facebook.com" />
+              </a>
+
+              <a className="button" href="https://spotify.com/">
+                <i className="fab fa-spotify" />
+              </a>
+
+
+              <a className="button" href="https://instagram.com/">
+                <i className="fab fa-instagram" />
+              </a>
 
 
             </div>
           </div>
 
-          <div className="main-container">
+          <div className="main-container" onScroll={this.handleScroll} id="main-container">
 
 
             <div className="row">

@@ -1,6 +1,7 @@
 body, html, #__next, .site { 
   margin: 0;
   height: 100%;
+  background: #acc4ce;
 
 }
 
@@ -11,21 +12,22 @@ body, html, #__next, .site {
   grid-template-rows: 85px calc(100vh - 85px);
   grid-template-columns: 1fr;
   height: 100%;
-  border: 2px solid #294552
-  /* background: #D8D8D8; */
+  transition:  all .2s ease-in-out;
+    /* border: 2px solid #294552; */
+
 
 }
 
-/* 
-.header-container{
-  height: 50px;
+.scrolled-content {
+  grid-template-rows: 45px calc(100vh - 45px);
+
 }
- */
+
 
 .main-container{
 
   display: grid; 
-  grid-template-rows:  calc(100vh - 90px)  calc(100vh - 125px) 40px;
+  grid-template-rows:  calc(100vh - 90px)  calc(100vh - 90px) 40px;
   overflow: auto;
  
     /* grid-template-columns: 1fr; */
@@ -44,14 +46,18 @@ body, html, #__next, .site {
 .header{ 
   background: #acc4ce;
   height: 85px;
-  transition: 0.2s;
+  transition: all 0.2s ease-in-out;
   font-size: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 70px;
   padding-left: 70px;
+  
   /* border-bottom: 2px solid #294552 */
+}
+.scrolled-header{ 
+  height: 45px;
 }
 
 .footer{ 
@@ -117,12 +123,21 @@ body, html, #__next, .site {
 
 
 .buttons {
-  width: 200px; 
+  width: 200px;
   justify-content: space-around;
   font-size: 50px; 
   display: flex;
-  color: #294552
+  color: #294552;
+  transition: all 0.2s ease-in-out;
 }
+
+.scrolled-buttons {
+  width: 100px; 
+  font-size: 30px; 
+  
+}
+
+
 
 .button {
   color: #294552
