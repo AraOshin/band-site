@@ -3,20 +3,26 @@ import React, { Component } from 'react';
 import Head from '../components/head';
 
 import './styles.css';
+import { throttle } from '../utils';
 
 
 class Home extends Component {
-  state = {
-    scrolled: false,
+  constructor() {
+    super();
+    this.state = {
+      scrolled: false,
+    };
+    this.throttledHandleScroll = throttle(this.handleScroll, 5);
   }
+
 
   handleScroll = () => {
     const mainElement = document.getElementById('main-container');
-    const innerHeight = window.innerHeight;
-    console.log('scrolling', mainElement.scrollTop);
+    console.log('scroll called');
 
-    if (mainElement.scrollTop > 300) this.setState({ scrolled: true });
-    else this.setState({ scrolled: false });
+
+    if (mainElement.scrollTop > 300 && !this.state.scrolled) this.setState({ scrolled: true });
+    else if (mainElement.scrollTop < 300 && this.state.scrolled) this.setState({ scrolled: false });
   }
 
   render() {
@@ -49,34 +55,36 @@ class Home extends Component {
             </div>
           </div>
 
-          <div className="main-container" onScroll={this.handleScroll} id="main-container">
+          <div className="main-container" onScroll={this.throttledHandleScroll} id="main-container">
 
 
             <div className="row">
-              <div className="box" />
-              <div className="box photos">
+              <div className="box top-left-box">
+                <img className="responsive-img" src="https://media.giphy.com/media/uWYjSbkIE2XIMIc7gh/giphy.gif" alt=" " />
+              </div>
+              <div className="box top-right-box photos ">
                 <div className="photo-row">
                   <div className="photo">
-                    <img src="http://placekitten.com/250/200" alt=" " />
+                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
                   </div>
                   <div className="photo">
-                    <img src="http://placekitten.com/250/200" alt=" " />
+                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
                   </div>
                 </div>
                 <div className="photo-row">
                   <div className="photo">
-                    <img src="http://placekitten.com/250/200" alt=" " />
+                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
                   </div>
                   <div className="photo">
-                    <img src="http://placekitten.com/250/200" alt=" " />
+                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
                   </div>
                 </div>
                 <div className="photo-row">
                   <div className="photo">
-                    <img src="http://placekitten.com/250/200" alt=" " />
+                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
                   </div>
                   <div className="photo">
-                    <img src="http://placekitten.com/250/200" alt=" " />
+                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
                   </div>
                 </div>
 
@@ -84,14 +92,14 @@ class Home extends Component {
             </div>
 
             <div className="row">
-              <div className="box">
+              <div className="box bottom-left-box">
                 <div className="album">
-                  <img src="http://placekitten.com/400/350" />
+                  <img className="responsive-img" src="http://placekitten.com/400/350" alt=" " />
                 </div>
               </div>
-              <div className="box">
+              <div className="box bottom-right-box">
                 <div className="album">
-                  <img src="http://placekitten.com/400/350" />
+                  <img className="responsive-img" src="http://placekitten.com/400/350" alt=" " />
                 </div>
               </div>
             </div>
