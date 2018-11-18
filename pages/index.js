@@ -12,7 +12,7 @@ class Home extends Component {
     this.state = {
       scrolled: false,
     };
-    this.throttledHandleScroll = throttle(this.handleScroll, 5);
+    // this.throttledHandleScroll = throttle(this.handleScroll, 0);
   }
 
 
@@ -21,8 +21,11 @@ class Home extends Component {
     console.log('scroll called');
 
 
-    if (mainElement.scrollTop > 300 && !this.state.scrolled) this.setState({ scrolled: true });
-    else if (mainElement.scrollTop < 300 && this.state.scrolled) this.setState({ scrolled: false });
+    const scrollThreshold = window.innerWidth < 450 ? (window.innerHeight * 2.5) : 300;
+    console.log(scrollThreshold);
+
+    if (mainElement.scrollTop > scrollThreshold && !this.state.scrolled) this.setState({ scrolled: true });
+    else if (mainElement.scrollTop < scrollThreshold && this.state.scrolled) this.setState({ scrolled: false });
   }
 
   render() {
@@ -55,7 +58,7 @@ class Home extends Component {
             </div>
           </div>
 
-          <div className="main-container" onScroll={this.throttledHandleScroll} id="main-container">
+          <div className="main-container" onScroll={this.handleScroll} id="main-container">
 
 
             <div className="row">
