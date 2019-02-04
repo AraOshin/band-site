@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-
 import Head from '../components/head';
-
 import './styles.css';
-import { throttle } from '../utils';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+import {
+  CinemagraphBox,
+  PictureBox,
+  AlbumFrontBox,
+  AlbumBackBox,
+} from '../components/Boxes';
 
 
 class Home extends Component {
@@ -34,81 +40,22 @@ class Home extends Component {
         <Head title="Home" />
         <div className={`content ${this.state.scrolled && 'scrolled-content'}`}>
 
-
-          <div className={`header ${this.state.scrolled && 'scrolled-header'}`}>
-
-            <img className="logo" src="/static/logo.png" alt=" " />
-            <div className={`buttons ${this.state.scrolled && 'scrolled-buttons'}`}>
-
-
-              <a className="button" href="https://facebook.com/">
-                <i className="fab fa-facebook-square" href="facebook.com" />
-              </a>
-
-              <a className="button" href="https://spotify.com/">
-                <i className="fab fa-spotify" />
-              </a>
-
-
-              <a className="button" href="https://instagram.com/">
-                <i className="fab fa-instagram" />
-              </a>
-
-
-            </div>
-          </div>
+          <Header scrolled={this.state.scrolled} />
 
           <div className="main-container" onScroll={this.handleScroll} id="main-container">
 
 
             <div className="row">
-              <div className="box top-left-box">
-                <img className="responsive-img" src="https://media.giphy.com/media/uWYjSbkIE2XIMIc7gh/giphy.gif" alt=" " />
-              </div>
-              <div className="box top-right-box photos ">
-                <div className="photo-row">
-                  <div className="photo">
-                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
-                  </div>
-                  <div className="photo">
-                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
-                  </div>
-                </div>
-                <div className="photo-row">
-                  <div className="photo">
-                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
-                  </div>
-                  <div className="photo">
-                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
-                  </div>
-                </div>
-                <div className="photo-row">
-                  <div className="photo">
-                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
-                  </div>
-                  <div className="photo">
-                    <img className="responsive-img" src="http://placekitten.com/250/200" alt=" " />
-                  </div>
-                </div>
-
-              </div>
+              <CinemagraphBox />
+              <PictureBox />
             </div>
 
             <div className="row">
-              <div className="box bottom-left-box">
-                <div className="album">
-                  <img className="responsive-img" src="http://placekitten.com/400/350" alt=" " />
-                </div>
-              </div>
-              <div className="box bottom-right-box">
-                <div className="album">
-                  <img className="responsive-img" src="http://placekitten.com/400/350" alt=" " />
-                </div>
-              </div>
+              <AlbumFrontBox />
+              <AlbumBackBox />
             </div>
 
-            <div className="footer"> Contact@BadEar.com</div>
-
+            <Footer />
           </div>
 
 

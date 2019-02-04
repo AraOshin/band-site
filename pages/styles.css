@@ -2,9 +2,7 @@ body, html, #__next, .site {
   margin: 0;
   height: 100%;
   background: #acc4ce;
-
 }
-
 
 
 .content {
@@ -13,14 +11,10 @@ body, html, #__next, .site {
   grid-template-columns: 1fr;
   height: 100%;
   transition:  all .2s ease-in-out;
-    /* border: 2px solid #294552; */
-
-
 }
 
 .scrolled-content {
   grid-template-rows: auto calc(100vh - 45px);
-
 }
 
 
@@ -29,6 +23,7 @@ body, html, #__next, .site {
   display: grid; 
   grid-template-rows:  calc(100vh - 90px)  calc(100vh - 90px) 40px;
   overflow: auto;
+  background: #294552
  
    
 
@@ -54,7 +49,7 @@ body, html, #__next, .site {
   margin-right: 5%;
   margin-left: 5%;
   
-  /* border-bottom: 2px solid #294552 */
+
 }
 .scrolled-header{ 
   height: 45px;
@@ -73,8 +68,6 @@ body, html, #__next, .site {
 .box{ 
   background:#9eb9b3;
   display: flex;
-  /* margin: 1.5%;
-  padding: 3%; */
   justify-content: center;
   align-items: center;
   padding: 1em;
@@ -138,10 +131,6 @@ body, html, #__next, .site {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
-
-
-
 }
 
 
@@ -149,7 +138,6 @@ body, html, #__next, .site {
   height: 70%;
   width: auto;
 }
-
 
 
 .buttons {
@@ -162,10 +150,8 @@ body, html, #__next, .site {
 
 .scrolled-buttons {
   width: 100px; 
-  font-size: 30px; 
-  
+  font-size: 30px;   
 }
-
 
 
 .button {
@@ -179,15 +165,47 @@ body, html, #__next, .site {
 
 @media(max-width: 450px) {
   .main-container{
-      grid-template-rows:  calc(200vh - 90px)  calc(200vh - 90px) 40px;
+      grid-template-rows: calc(200vh - 179px)  calc(200vh - 179px) 40px;
   }
   .row{
     grid-template-columns: 1fr;
+    grid-template-rows: calc(100vh - 85px)  calc(100vh - 85px)
   }
 
-  .box{ 
-    border: none;
+
+  .box {
+    border: .1em solid #294552;
   }
+/* 
+  .top-left-box{
+    border-top: 3px solid #294552;
+    border-bottom: 1.5px solid #294552;
+    border-left: 3px solid #294552;
+    border-right: 3px solid #294552;
+  
+  }
+  .top-right-box{
+    border-top: 1.5px solid #294552;
+    border-bottom: 1.5px solid #294552;
+    border-left: 3px solid #294552;
+    border-right: 3px solid #294552;
+    
+  }
+  .bottom-left-box{
+    border-top: 1.5px solid #294552;
+    border-bottom: 1.5px solid #294552;
+    border-left: 3px solid #294552;
+    border-right: 3px solid #294552;
+    
+  }
+  
+  .bottom-right-box{
+    border-top: 1.5px solid #294552;
+    border-bottom: 3px solid #294552;
+    border-left: 3px solid #294552;
+    border-right: 3px solid #294552;
+    
+  } */
   .buttons{
     width: 100px
 
